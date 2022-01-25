@@ -6,13 +6,14 @@ sheet = wb["Лист1"]
 cells = sheet['A1':'B2155']
 
 marka = input('Введите марку автомобиля:')
-
+est = ''
 for marka_model in cells:
-    if marka == marka_model[0].value:
-        print(marka_model[0].value, marka_model[1].value)
-    else:
-        print('К сожалению, данная марка автомобиля не найдена')
-        break
+    marka_in_doc, model = marka_model
+    if marka == marka_in_doc.value:
+        est += marka_in_doc.value + ' ' + str(model.value) + '\n'
 
+if len(est) > 0:
+    print(est)
 
-
+else:
+    print('К сожалению, данная марка автомобиля не найдена')
